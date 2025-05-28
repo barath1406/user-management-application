@@ -1,0 +1,46 @@
+# Common configuration values shared across all environments
+replicaCount: 2
+
+image:
+  repository: barath1406/user-portal
+  tag: "2.5.11"
+  pullPolicy: IfNotPresent
+
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: NodePort
+  port: 443
+  targetPort: 5000
+  nodePort: 30081
+  protocol: TCP
+  name: http
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 5000
+  initialDelaySeconds: 30
+  periodSeconds: 10
+
+readinessProbe:
+  httpGet:
+    path: /
+    port: 5000
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  
+aws:
+  region: "us-east-1"
+  secretKey: "barath-aurora-cluster-master-password"
+
+flaskSecretKey: b"\xfd{H\xe5<\x95\xf9\xe3\x96.5\xd1\x01O<!\xd5\xa2\xa0\x9fR"\xa1\xa8"

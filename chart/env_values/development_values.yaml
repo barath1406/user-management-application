@@ -1,0 +1,21 @@
+# Development environment specific values
+serviceAccount:
+  create: true
+  name: "barath-user-portal-sa"
+  iamRole: "arn:aws:iam::1234567890:role/barath-user-portal-role"
+
+podAnnotations: {}
+
+ingress:
+  enabled: true
+  ingressClassName: "nginx"
+  serviceName: "barath-user-portal-service"
+  servicePort: 443
+  host: "barath.network" 
+  path: "/(.*)"
+  pathType: "ImplementationSpecific"
+  namespace: "barath"
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/rewrite-target: /$1    

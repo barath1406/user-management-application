@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block page_title %}User Management{% endblock %}
+{% block body %}
+    {{ super() }}
+
+    <div class = "container">
+        <div class="col-lg-6">
+                <table class="table small">
+                <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>Title</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Status</th>
+                      <th>Username</th>
+                      <th>Age</th>
+                      <th>Created At</th>
+                      <th>Action</th>
+                    </tr>
+                </thead>
+                {% for id, title, firstname, lastname, status, username, age, created_at, act in users %}
+                        <tr>
+                           <td> {{ id }} </td>
+                           <td> {{ title }} </td>
+                           <td> {{ firstname }} </td>
+                           <td> {{ lastname }} </td>
+                           <td> {{ status }} </td>
+                           <td> {{ username }} </td>
+                           <td> {{ age }} </td>
+                           <td> {{ created_at }} </td>
+                           {% if session.get("current_user", None) == "admin" %}
+                           <td>
+                             <form action="{{ act }}" method="post" style="display:inline;">
+                               <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                               <button type="submit" class="btn btn-link" style="padding:0; border:none; background:none; color:#337ab7; text-decoration:underline; cursor:pointer;">Delete</button>
+                             </form>
+                           </td>
+                           {% else %}
+                            <td> NA </td>
+                           {% endif %}
+                        </tr>
+                        
+                {% endfor %}
+                </table>
+        </div>
+    </div>
+
+
+{% endblock %}
