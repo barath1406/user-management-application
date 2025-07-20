@@ -21,8 +21,8 @@ ingress:
   ingressClassName: "nginx"
   serviceName: "barath-user-portal-service"
   servicePort: 443
-  host: "barath.network" 
-  path: "/(.*)"
+  host: "k8s-ingressn-ingressn-4acd914e54-6ed70e4f45dfc4c1.elb.us-west-2.amazonaws.com" 
+  path: "/"
   pathType: "ImplementationSpecific"
   namespace: "workload"
   annotations:
