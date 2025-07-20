@@ -31,10 +31,9 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$1 
     
 service:
-  type: NodePort
+  type: ClusterIP
   port: 443
   targetPort: 5000
-  nodePort: 30081
   protocol: TCP
   name: http
 
