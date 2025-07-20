@@ -31,7 +31,7 @@ ingress:
     nginx.ingress.kubernetes.io/rewrite-target: /$1 
     
 service:
-  type: LoadBalancer
+  type: ClusterIP
   port: 80
   targetPort: 5000
   protocol: TCP
