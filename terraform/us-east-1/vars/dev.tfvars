@@ -5,7 +5,7 @@
 # Global Environment Settings
 environment                       = "development"
 enabled                           = true
-region                            = "us-east-1"
+region                            = "us-west-2"
 
 # Common Tags for All Resources
 tags                              = {
@@ -246,18 +246,11 @@ monitoring_interval               = "60"
 create_random_password            = true
 rds_db_sg_ingress_rules           = [
   {
-    description                   = "Allow Compute VPC"
-    ip_protocol                   = "tcp"
-    from_port                     = 3306
-    to_port                       = 3306
-    cidr_ipv4                     = "10.5.0.0/16"
-  },
-  {
     description                   = "Allow Data VPC"
     ip_protocol                   = "tcp"
     from_port                     = 3306
     to_port                       = 3306
-    cidr_ipv4                     = "10.10.0.0/16"
+    cidr_ipv4                     = "0.0.0.0/0"
   }
 ]
 rds_db_sg_egress_rules            = [
