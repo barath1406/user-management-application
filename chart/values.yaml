@@ -12,7 +12,7 @@ fullnameOverride: ""
 serviceAccount:
   create: true
   name: "barath-user-portal-sa"
-  iamRole: "arn:aws:iam::1234567890:role/barath-user-portal-role"
+  iamRole: "arn:aws:iam::891377149147:role/barath-user-portal-role"
 
 podAnnotations: {}
 
@@ -24,7 +24,7 @@ ingress:
   host: "barath.network" 
   path: "/(.*)"
   pathType: "ImplementationSpecific"
-  namespace: "barath"
+  namespace: "default"
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/use-regex: "true"
