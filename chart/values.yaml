@@ -20,7 +20,7 @@ ingress:
   enabled: true
   ingressClassName: "nginx"
   serviceName: "barath-user-portal-service"
-  servicePort: 443
+  servicePort: 80
   host: "k8s-ingressn-ingressn-4acd914e54-6ed70e4f45dfc4c1.elb.us-west-2.amazonaws.com" 
   path: "/"
   pathType: "ImplementationSpecific"
@@ -32,7 +32,7 @@ ingress:
     
 service:
   type: LoadBalancer
-  port: 443
+  port: 80
   targetPort: 5000
   protocol: TCP
   name: http
