@@ -24,7 +24,7 @@ ingress:
   host: "k8s-ingressn-ingressn-b938e4fc72-0bfe02681efc7182.elb.us-west-2.amazonaws.com" 
   path: "/"
   pathType: "ImplementationSpecific"
-  namespace: "default"
+  namespace: "workload"
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "true"
     nginx.ingress.kubernetes.io/use-regex: "true"
