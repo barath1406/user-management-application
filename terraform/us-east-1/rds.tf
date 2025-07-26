@@ -7,7 +7,7 @@ module "aurora_mysql" {
   database_name                       = var.database_name
   master_username                     = var.master_username
   create_random_password              = var.create_random_password
-  subnet_ids                          = ["subnet-040634ef5da86495c","subnet-06bf1e1fb9cc449e3","subnet-0a186fb0da9f0f44a"]
+  subnet_ids                          = ["subnet-03bc6b9e3646c4fab","subnet-0de27d2fb8d5f408c","subnet-04bb6bb9135a491c1"]
   security_group_ids                  = [module.db_security_group.security_group_id]
   monitoring_interval                 = var.monitoring_interval
   monitoring_role_arn                 = data.aws_iam_role.rds_monitoring_role.arn
@@ -44,7 +44,7 @@ module "db_security_group" {
   source         = "../modules/sg"
   sg_name        = var.rds_db_sg_name
   sg_description = var.rds_db_sg_description
-  vpc_id         = "vpc-07fc414f341d85ff9"
+  vpc_id         = "vpc-0a0b00ffdf36d0179"
   ingress_rules  = var.rds_db_sg_ingress_rules
   egress_rules   = var.rds_db_sg_egress_rules
 

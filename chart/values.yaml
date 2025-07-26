@@ -12,7 +12,7 @@ fullnameOverride: ""
 serviceAccount:
   create: true
   name: "barath-user-portal-sa"
-  iamRole: "arn:aws:iam::891377149147:role/barath-user-portal-role"
+  iamRole: "arn:aws:iam::654654588816:role/barath-user-portal-role"
 
 podAnnotations: {}
 
@@ -21,7 +21,7 @@ ingress:
   ingressClassName: "nginx"
   serviceName: "barath-user-portal-service"
   servicePort: 80
-  host: "k8s-ingressn-ingressn-4acd914e54-6ed70e4f45dfc4c1.elb.us-west-2.amazonaws.com" 
+  host: "k8s-ingressn-ingressn-b938e4fc72-0bfe02681efc7182.elb.us-west-2.amazonaws.com" 
   path: "/"
   pathType: "ImplementationSpecific"
   namespace: "workload"
